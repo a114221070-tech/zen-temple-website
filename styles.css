@@ -1400,3 +1400,228 @@ footer::before {
 ::-webkit-scrollbar-thumb:hover {
     background: #a33018;
 }
+/* 程式碼展示區塊 */
+.code-showcase {
+    background: linear-gradient(135deg, var(--paper-white) 0%, #f8f6f0 100%);
+    position: relative;
+}
+
+.code-showcase::before {
+    content: '💻';
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    font-size: 8rem;
+    opacity: 0.05;
+    pointer-events: none;
+}
+
+.code-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+    position: relative;
+    z-index: 1;
+}
+
+.code-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.code-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    border-color: var(--primary-red);
+}
+
+.code-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    background: linear-gradient(135deg, var(--mist-gray), #f0f0f0);
+    border-bottom: 2px solid var(--primary-red);
+}
+
+.code-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.code-icon {
+    font-size: 1.5rem;
+}
+
+.code-title h3 {
+    color: var(--ink-black);
+    font-size: 1.3rem;
+    font-family: 'Noto Serif TC', serif;
+    margin: 0;
+}
+
+.code-lang {
+    background: var(--primary-red);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.code-content {
+    padding: 0;
+    background: #1e1e1e;
+    overflow-x: auto;
+}
+
+.code-content pre {
+    margin: 0;
+    padding: 25px;
+    background: #1e1e1e;
+    color: #d4d4d4;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    overflow-x: auto;
+}
+
+.code-content code {
+    color: #d4d4d4;
+}
+
+.code-footer {
+    padding: 20px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--paper-white);
+}
+
+.code-desc {
+    color: var(--stone-gray);
+    font-style: italic;
+    flex: 1;
+}
+
+.code-link {
+    color: var(--primary-red);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.code-link:hover {
+    background: rgba(199, 62, 29, 0.1);
+    transform: translateX(3px);
+}
+
+/* GitHub 展示卡片 */
+.github-showcase {
+    margin-top: 40px;
+}
+
+.github-card {
+    background: linear-gradient(135deg, white, #f8f6f0);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    border: 3px solid var(--temple-gold);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.github-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.github-icon {
+    font-size: 2.5rem;
+}
+
+.github-card h3 {
+    color: var(--ink-black);
+    font-size: 1.8rem;
+    font-family: 'Noto Serif TC', serif;
+    margin: 0;
+}
+
+.github-card p {
+    color: var(--stone-gray);
+    font-size: 1.1rem;
+    margin: 20px 0 30px;
+    line-height: 1.7;
+}
+
+.github-stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-red);
+    font-family: 'Noto Serif TC', serif;
+}
+
+.stat-label {
+    display: block;
+    color: var(--stone-gray);
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+/* 程式碼區塊響應式設計 */
+@media (max-width: 768px) {
+    .code-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .code-header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .code-content pre {
+        padding: 15px;
+        font-size: 0.8rem;
+    }
+    
+    .code-footer {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .github-stats {
+        gap: 20px;
+    }
+    
+    .github-card {
+        padding: 25px;
+    }
+}
