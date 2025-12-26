@@ -1,147 +1,199 @@
-// 平滑滾動效果
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    });
-});
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>心靜齋 - 大一新生的數位禪境</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;700&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛩️</text></svg>">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <div class="logo">
+                    <div class="torii">⛩️</div>
+                    <h2>心靜齋</h2>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#about">關於我</a></li>
+                    <li><a href="#studies">學習之路</a></li>
+                    <li><a href="#projects">作品展示</a></li>
+                    <li><a href="#code">程式碼</a></li>
+                    <li><a href="#wisdom">心得感悟</a></li>
+                    <li><a href="#contact">結緣聯絡</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
 
-// 導航列滾動效果 - 日式風格
-window.addEventListener('scroll', function() {
-    const header = document.querySelector('header');
-    if (window.scrollY > 100) {
-        header.style.background = 'rgba(250, 247, 240, 0.98)';
-        header.style.boxShadow = '0 2px 20px rgba(199, 62, 29, 0.15)';
-    } else {
-        header.style.background = 'linear-gradient(135deg, var(--paper-white) 0%, rgba(250, 247, 240, 0.95) 100%)';
-        header.style.boxShadow = '0 2px 20px rgba(199, 62, 29, 0.1)';
-    }
-});
+    <main>
+        <!-- 首頁橫幅 -->
+        <section class="hero">
+            <div class="hero-bg">
+                <div class="bamboo-left">🎋</div>
+                <div class="bamboo-right">🎋</div>
+                <div class="mountain-silhouette"></div>
+            </div>
+            <div class="hero-content">
+                <div class="zen-circle"></div>
+                <h1>初心如月，<span class="highlight">學海無涯</span></h1>
+                <p class="hero-subtitle">大一新生 | 求學者 | 數位修行人</p>
+                <div class="hero-quote">
+                    <p>「千里之行，始於足下」</p>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">觀賞作品</a>
+                    <a href="#contact" class="btn btn-secondary">結緣交流</a>
+                </div>
+            </div>
+        </section>
 
-// 表單提交處理 - 禪意風格
-document.querySelector('.contact-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // 獲取表單數據
-    const name = this.querySelector('input[type="text"]').value;
-    const email = this.querySelector('input[type="email"]').value;
-    const message = this.querySelector('textarea').value;
-    
-    // 簡單的表單驗證
-    if (!name || !email || !message) {
-        showZenAlert('請填寫所有必填欄位，方能結緣 🙏');
-        return;
-    }
-    
-    // 顯示禪意成功訊息
-    showZenAlert('感謝您的留言！如春風化雨，必將細心回覆 🌸', 'success');
-    
-    // 清空表單
-    this.reset();
-});
+        <!-- 關於我 -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="section-header">
+                    <div class="zen-symbol">☯</div>
+                    <h2>初心自述</h2>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="about-content">
+                    <div class="about-text">
+                        <div class="text-card">
+                            <p>我是一名剛踏入大學殿堂的新生，如同初入寺廟的小沙彌，對知識充滿敬畏與渴望。在這個數位時代的修行路上，我以謙卑的心態學習每一項技能。</p>
+                            <p>雖然我的經驗尚淺，但我相信「不積跬步，無以至千里」。每一行程式碼、每一個設計，都是我在學習路上留下的足跡。</p>
+                            <div class="quote-box">
+                                <div class="sakura-quote">
+                                    <div class="quote-decoration top">
+                                        <span class="sakura-left">🌸</span>
+                                        <span class="quote-mark-large">❝</span>
+                                        <span class="sakura-right">🌸</span>
+                                    </div>
+                                    <p class="quote-text">學而時習之不亦說乎</p>
+                                    <div class="quote-decoration bottom">
+                                        <span class="sakura-left">🌸</span>
+                                        <span class="quote-mark-large">❞</span>
+                                        <span class="sakura-right">🌸</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-image">
+                        <div class="image-frame">
+                            <div class="image-placeholder">
+                                <div class="avatar-circle">
+                                    <span>🧘‍♂️</span>
+                                </div>
+                            </div>
+                            <div class="image-caption">初學者的心境</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-// 禪意風格的提示框
-function showZenAlert(message, type = 'info') {
-    const alertDiv = document.createElement('div');
-    alertDiv.className = `zen-alert zen-alert-${type}`;
-    alertDiv.innerHTML = `
-        <div class="zen-alert-content">
-            <div class="zen-alert-icon">${type === 'success' ? '🌸' : '⚠️'}</div>
-            <p>${message}</p>
-        </div>
-    `;
-    
-    // 添加樣式
-    alertDiv.style.cssText = `
-        position: fixed;
-        top: 100px;
-        right: 20px;
-        background: white;
-        padding: 20px;
-        border-radius: 15px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        border-left: 5px solid ${type === 'success' ? '#c73e1d' : '#d4af37'};
-        z-index: 10000;
-        transform: translateX(400px);
-        transition: transform 0.3s ease;
-        max-width: 300px;
-    `;
-    
-    document.body.appendChild(alertDiv);
-    
-    // 動畫顯示
-    setTimeout(() => {
-        alertDiv.style.transform = 'translateX(0)';
-    }, 100);
-    
-    // 自動消失
-    setTimeout(() => {
-        alertDiv.style.transform = 'translateX(400px)';
-        setTimeout(() => {
-            document.body.removeChild(alertDiv);
-        }, 300);
-    }, 3000);
-}
+        <!-- 學習之路 -->
+        <section id="studies" class="studies">
+            <div class="container">
+                <div class="section-header">
+                    <div class="zen-symbol">📚</div>
+                    <h2>學習之路</h2>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="studies-grid">
+                    <div class="study-item">
+                        <div class="study-icon">🌱</div>
+                        <h3>程式基礎</h3>
+                        <p>HTML, CSS, JavaScript<br>初學者的第一步</p>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 40%"></div>
+                        </div>
+                    </div>
+                    <div class="study-item">
+                        <div class="study-icon">🌿</div>
+                        <h3>設計美學</h3>
+                        <p>UI/UX 設計原理<br>追求簡約之美</p>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 30%"></div>
+                        </div>
+                    </div>
+                    <div class="study-item">
+                        <div class="study-icon">🌳</div>
+                        <h3>專業課程</h3>
+                        <p>大學課業學習<br>紮實基礎知識</p>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 60%"></div>
+                        </div>
+                    </div>
+                    <div class="study-item">
+                        <div class="study-icon">🍃</div>
+                        <h3>自我成長</h3>
+                        <p>持續學習精神<br>終身學習之道</p>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 50%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-// 滾動動畫效果 - 禪意風格
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
+        <!-- 作品展示 -->
+        <section id="projects" class="projects">
+            <div class="container">
+                <div class="section-header">
+                    <div class="zen-symbol">🎨</div>
+                    <h2>作品展示</h2>
+                    <div class="section-divider"></div>
+                    <p class="section-subtitle">初學者的練習作品，每一個都是成長的見證</p>
+                </div>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <div class="image-placeholder">
+                                <div class="project-icon">🏮</div>
+                                <span>互動練習</span>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>燈籠祈願</h3>
+                            <p>使用 JavaScript 製作的互動式祈願燈籠，用戶可以點擊燈籠許願，體驗簡單的互動設計。</p>
+                            <div class="project-tags">
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">互動</span>
+                                <span class="tag">設計</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="lantern-wish.html" class="btn btn-small" target="_blank">觀看作品</a>
+                                <a href="#code" class="btn btn-small btn-outline">程式碼</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-const observer = new IntersectionObserver(function(entries) {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-            
-            // 特殊動畫效果
-            if (entry.target.classList.contains('study-item')) {
-                const progressBar = entry.target.querySelector('.progress');
-                if (progressBar) {
-                    setTimeout(() => {
-                        progressBar.style.width = progressBar.style.width || '0%';
-                    }, 500);
-                }
-            }
-        }
-    });
-}, observerOptions);
-
-// 為需要動畫的元素添加初始樣式和觀察者
-document.addEventListener('DOMContentLoaded', function() {
-    const animatedElements = document.querySelectorAll('.study-item, .project-card, .wisdom-card, .text-card');
-    
-    animatedElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-        observer.observe(el);
-    });
-    
-    // 初始化禪意效果
-    initZenEffects();
-});
-
-// 禪意特效初始化
-function initZenEffects() {
-    // 櫻花飄落效果
-    createSakuraPetals();
-    
-    // 禪意音效（可選）
-    // addZenSounds();
-    
-    // 時間問候
-    displayTimeGreeting();
-}
-
-// 櫻花飄落效果
+        <!-- 程式碼展示 -->
+        <section id="code" class="code-showcase">
+            <div class="container">
+                <div class="section-header">
+                    <div class="zen-symbol">💻</div>
+                    <h2>程式碼展示</h2>
+                    <div class="section-divider"></div>
+                    <p class="section-subtitle">分享我的學習成果與程式碼片段</p>
+                </div>
+                <div class="code-grid">
+                    <div class="code-card">
+                        <div class="code-header">
+                            <div class="code-title">
+                                <span class="code-icon">🌸</span>
+                                <h3>櫻花飄落動畫</h3>
+                            </div>
+                            <div class="code-lang">JavaScript</div>
+                        </div>
+                        <div class="code-content">
+                            <pre><code>// 櫻花飄落效果
 function createSakuraPetals() {
     const petalCount = 15;
     const body = document.body;
@@ -160,267 +212,297 @@ function createSakuraPetals() {
                 z-index: 1;
                 animation: sakuraFall ${Math.random() * 10 + 15}s linear infinite;
             `;
-            
             body.appendChild(petal);
-            
-            // 清理元素
-            setTimeout(() => {
-                if (body.contains(petal)) {
-                    body.removeChild(petal);
-                }
-            }, 25000);
         }, i * 2000);
     }
+}</code></pre>
+                        </div>
+                        <div class="code-footer">
+                            <span class="code-desc">創造網站的櫻花飄落效果</span>
+                            <a href="https://github.com/a114221070-tech/zen-temple-website/blob/main/script.js" target="_blank" class="code-link">查看完整代碼</a>
+                        </div>
+                    </div>
+
+                    <div class="code-card">
+                        <div class="code-header">
+                            <div class="code-title">
+                                <span class="code-icon">🎨</span>
+                                <h3>日式色彩系統</h3>
+                            </div>
+                            <div class="code-lang">CSS</div>
+                        </div>
+                        <div class="code-content">
+                            <pre><code>/* 日系寺廟色彩調色盤 */
+:root {
+    --primary-red: #c73e1d;    /* 朱紅色 */
+    --temple-gold: #d4af37;    /* 寺廟金 */
+    --zen-brown: #8b4513;      /* 禪意棕 */
+    --bamboo-green: #4a5d23;   /* 竹綠色 */
+    --paper-white: #faf7f0;    /* 紙白色 */
+    --cherry-pink: #ffb7c5;    /* 櫻花粉 */
 }
 
-// 添加櫻花飄落動畫
-const sakuraStyle = document.createElement('style');
-sakuraStyle.textContent = `
-    @keyframes sakuraFall {
-        0% {
-            transform: translateY(-50px) rotate(0deg);
-            opacity: 1;
-        }
-        100% {
-            transform: translateY(100vh) rotate(360deg);
-            opacity: 0;
-        }
-    }
-    
-    .zen-alert-content {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-    }
-    
-    .zen-alert-icon {
-        font-size: 1.5rem;
-    }
-    
-    .zen-alert p {
-        margin: 0;
-        color: #2c2c2c;
-        font-family: 'Noto Serif TC', serif;
-    }
-`;
-document.head.appendChild(sakuraStyle);
+.hero {
+    background: linear-gradient(135deg, 
+        var(--paper-white) 0%, 
+        #f5f2e8 30%, 
+        #ede7d3 70%, 
+        var(--mist-gray) 100%);
+}</code></pre>
+                        </div>
+                        <div class="code-footer">
+                            <span class="code-desc">定義網站的日式美學色彩</span>
+                            <a href="https://github.com/a114221070-tech/zen-temple-website/blob/main/styles.css" target="_blank" class="code-link">查看完整樣式</a>
+                        </div>
+                    </div>
 
-// 時間問候
-function displayTimeGreeting() {
-    const hour = new Date().getHours();
-    let greeting = '';
-    
-    if (hour < 6) {
-        greeting = '夜深人靜，願您安好 🌙';
-    } else if (hour < 12) {
-        greeting = '晨光初現，新的一天開始了 🌅';
-    } else if (hour < 18) {
-        greeting = '午後時光，願您心境平和 ☀️';
-    } else {
-        greeting = '夕陽西下，感謝您的到訪 🌅';
-    }
-    
-    // 可以在控制台顯示問候語
-    console.log(`%c${greeting}`, 'color: #c73e1d; font-size: 16px; font-family: "Noto Serif TC", serif;');
-}
-
-// 響應式導航選單（手機版）- 日式風格
-function createMobileMenu() {
-    const nav = document.querySelector('.nav-container');
-    const navMenu = document.querySelector('.nav-menu');
-    
-    // 創建日式選單按鈕
-    const menuToggle = document.createElement('button');
-    menuToggle.className = 'menu-toggle';
-    menuToggle.innerHTML = '☰';
-    menuToggle.style.cssText = `
-        display: none;
-        background: none;
-        border: 2px solid var(--primary-red);
-        border-radius: 8px;
-        padding: 8px 12px;
-        font-size: 1.2rem;
-        cursor: pointer;
-        color: var(--primary-red);
-        transition: all 0.3s ease;
-    `;
-    
-    // 添加手機版樣式
-    const mobileStyles = document.createElement('style');
-    mobileStyles.textContent = `
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: block !important;
-            }
-            
-            .menu-toggle:hover {
-                background: var(--primary-red);
-                color: white;
-            }
-            
-            .nav-menu {
-                position: fixed;
-                top: 80px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 80px);
-                background: linear-gradient(135deg, var(--paper-white) 0%, #f8f6f0 100%);
-                flex-direction: column;
-                justify-content: flex-start;
-                align-items: center;
-                padding-top: 50px;
-                transition: left 0.3s ease;
-                box-shadow: 0 2px 20px rgba(199, 62, 29, 0.2);
-                border-top: 2px solid var(--primary-red);
-            }
-            
-            .nav-menu.active {
-                left: 0;
-            }
-            
-            .nav-menu li {
-                margin: 25px 0;
-                opacity: 0;
-                transform: translateY(20px);
-                transition: all 0.3s ease;
-            }
-            
-            .nav-menu.active li {
-                opacity: 1;
-                transform: translateY(0);
-            }
-            
-            .nav-menu.active li:nth-child(1) { transition-delay: 0.1s; }
-            .nav-menu.active li:nth-child(2) { transition-delay: 0.2s; }
-            .nav-menu.active li:nth-child(3) { transition-delay: 0.3s; }
-            .nav-menu.active li:nth-child(4) { transition-delay: 0.4s; }
-            .nav-menu.active li:nth-child(5) { transition-delay: 0.5s; }
-            
-            .nav-menu a {
-                font-size: 1.3rem;
-                padding: 10px 20px;
-                border-radius: 10px;
-                transition: all 0.3s ease;
-            }
-            
-            .nav-menu a:hover {
-                background: rgba(199, 62, 29, 0.1);
-            }
-        }
-    `;
-    
-    document.head.appendChild(mobileStyles);
-    nav.appendChild(menuToggle);
-    
-    // 選單切換功能
-    menuToggle.addEventListener('click', function() {
-        navMenu.classList.toggle('active');
-        this.innerHTML = navMenu.classList.contains('active') ? '✕' : '☰';
-    });
-    
-    // 點擊選單項目後關閉選單
-    navMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', function() {
-            navMenu.classList.remove('active');
-            menuToggle.innerHTML = '☰';
-        });
-    });
-    
-    // 點擊外部關閉選單
-    document.addEventListener('click', function(e) {
-        if (!nav.contains(e.target) && navMenu.classList.contains('active')) {
-            navMenu.classList.remove('active');
-            menuToggle.innerHTML = '☰';
-        }
-    });
-}
-
-// 初始化手機選單
-createMobileMenu();
-
-// 禪意打字機效果（可選功能）
-function typeWriter(element, text, speed = 150) {
-    let i = 0;
-    element.innerHTML = '';
-    
-    function type() {
-        if (i < text.length) {
-            element.innerHTML += text.charAt(i);
-            i++;
-            setTimeout(type, speed);
-        }
-    }
-    
-    type();
-}
-
-// 頁面載入完成後的初始化
-window.addEventListener('load', function() {
-    // 顯示歡迎訊息
-    setTimeout(() => {
-        showZenAlert('歡迎來到心靜齋，願您在此找到內心的平靜 🙏', 'success');
-    }, 1000);
-    
-    console.log('%c心靜齋 - 數位禪境已載入完成', 'color: #c73e1d; font-size: 18px; font-weight: bold; font-family: "Noto Serif TC", serif;');
-    console.log('%c願所有訪客都能在學習的道路上找到屬於自己的方向 🌸', 'color: #8b4513; font-size: 14px; font-family: "Noto Serif TC", serif;');
-});
-
-// 滾動到頂部按鈕 - 日式風格
-function createScrollToTop() {
-    const scrollBtn = document.createElement('button');
-    scrollBtn.innerHTML = '⛩️';
-    scrollBtn.className = 'scroll-to-top';
-    scrollBtn.style.cssText = `
+                    <div class="code-card">
+                        <div class="code-header">
+                            <div class="code-title">
+                                <span class="code-icon">📱</span>
+                                <h3>響應式設計</h3>
+                            </div>
+                            <div class="code-lang">CSS</div>
+                        </div>
+                        <div class="code-content">
+                            <pre><code>/* 響應式導航選單 */
+@media (max-width: 768px) {
+    .nav-menu {
         position: fixed;
-        bottom: 30px;
-        right: 30px;
-        width: 60px;
-        height: 60px;
-        background: var(--primary-red);
-        color: white;
-        border: none;
-        border-radius: 50%;
-        font-size: 1.5rem;
-        cursor: pointer;
-        box-shadow: 0 4px 15px rgba(199, 62, 29, 0.3);
-        transition: all 0.3s ease;
-        opacity: 0;
-        transform: translateY(100px);
-        z-index: 1000;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background: linear-gradient(135deg, 
+            var(--paper-white) 0%, 
+            #f8f6f0 100%);
+        flex-direction: column;
+        transition: left 0.3s ease;
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+}</code></pre>
+                        </div>
+                        <div class="code-footer">
+                            <span class="code-desc">確保網站在手機上完美顯示</span>
+                            <a href="https://github.com/a114221070-tech/zen-temple-website/blob/main/styles.css" target="_blank" class="code-link">查看完整代碼</a>
+                        </div>
+                    </div>
+
+                    <div class="code-card">
+                        <div class="code-header">
+                            <div class="code-title">
+                                <span class="code-icon">🏮</span>
+                                <h3>禪意提示框</h3>
+                            </div>
+                            <div class="code-lang">JavaScript</div>
+                        </div>
+                        <div class="code-content">
+                            <pre><code>// 禪意風格的提示框
+function showZenAlert(message, type = 'info') {
+    const alertDiv = document.createElement('div');
+    alertDiv.className = `zen-alert zen-alert-${type}`;
+    alertDiv.innerHTML = `
+        &lt;div class="zen-alert-content"&gt;
+            &lt;div class="zen-alert-icon"&gt;${type === 'success' ? '🌸' : '⚠️'}&lt;/div&gt;
+            &lt;p&gt;${message}&lt;/p&gt;
+        &lt;/div&gt;
     `;
     
-    document.body.appendChild(scrollBtn);
+    document.body.appendChild(alertDiv);
     
-    // 滾動顯示/隱藏
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 300) {
-            scrollBtn.style.opacity = '1';
-            scrollBtn.style.transform = 'translateY(0)';
-        } else {
-            scrollBtn.style.opacity = '0';
-            scrollBtn.style.transform = 'translateY(100px)';
-        }
-    });
-    
-    // 點擊回到頂部
-    scrollBtn.addEventListener('click', function() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
-    
-    // 懸停效果
-    scrollBtn.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(0) scale(1.1)';
-        this.style.boxShadow = '0 6px 20px rgba(199, 62, 29, 0.4)';
-    });
-    
-    scrollBtn.addEventListener('mouseleave', function() {
-        this.style.transform = 'translateY(0) scale(1)';
-        this.style.boxShadow = '0 4px 15px rgba(199, 62, 29, 0.3)';
-    });
-}
+    // 動畫顯示
+    setTimeout(() => {
+        alertDiv.style.transform = 'translateX(0)';
+    }, 100);
+}</code></pre>
+                        </div>
+                        <div class="code-footer">
+                            <span class="code-desc">創造具有禪意美學的用戶提示</span>
+                            <a href="https://github.com/a114221070-tech/zen-temple-website/blob/main/script.js" target="_blank" class="code-link">查看完整代碼</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="github-showcase">
+                    <div class="github-card">
+                        <div class="github-header">
+                            <div class="github-icon">📚</div>
+                            <h3>完整原始碼</h3>
+                        </div>
+                        <p>想要查看完整的網站原始碼？歡迎訪問我的 GitHub 倉庫！</p>
+                        <div class="github-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">3</span>
+                                <span class="stat-label">檔案</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">500+</span>
+                                <span class="stat-label">行程式碼</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">100%</span>
+                                <span class="stat-label">用心製作</span>
+                            </div>
+                        </div>
+                        <a href="https://github.com/a114221070-tech/zen-temple-website" target="_blank" class="btn btn-primary">
+                            <span>📖</span>
+                            查看 GitHub 倉庫
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-// 初始化回到頂部按鈕
-createScrollToTop();
+        <!-- 心得感悟 -->
+        <section id="wisdom" class="wisdom">
+            <div class="container">
+                <div class="section-header">
+                    <div class="zen-symbol">🧘</div>
+                    <h2>心得感悟</h2>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="wisdom-content">
+                    <div class="wisdom-cards">
+                        <div class="wisdom-card">
+                            <div class="wisdom-icon">🌅</div>
+                            <h3>初心</h3>
+                            <p>「初心者的心境有許多可能性，專家的心境則很少。」保持初學者的謙卑與好奇心。</p>
+                        </div>
+                        <div class="wisdom-card">
+                            <div class="wisdom-icon">🌊</div>
+                            <h3>持續</h3>
+                            <p>「滴水穿石，非一日之功。」每天進步一點點，積少成多，終將有所成就。</p>
+                        </div>
+                        <div class="wisdom-card">
+                            <div class="wisdom-icon">🌙</div>
+                            <h3>反思</h3>
+                            <p>「吾日三省吾身。」定期回顧學習過程，從錯誤中學習，從成功中總結。</p>
+                        </div>
+                    </div>
+                    <div class="daily-quote">
+                        <div class="quote-container">
+                            <div class="quote-text">
+                                <div class="sakura-quote-large">
+                                    <div class="quote-decoration top">
+                                        <span class="sakura-left">🌸</span>
+                                        <span class="quote-mark-large">❝</span>
+                                        <span class="sakura-right">🌸</span>
+                                    </div>
+                                    <p class="quote-main-text">學習如登山一步一腳印雖然辛苦但山頂的風景值得所有的努力。</p>
+                                    <div class="quote-decoration bottom">
+                                        <span class="sakura-left">🌸</span>
+                                        <span class="quote-mark-large">❞</span>
+                                        <span class="sakura-right">🌸</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="quote-author">— 大一新生的學習感悟</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- 結緣聯絡 -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="section-header">
+                    <div class="zen-symbol">🤝</div>
+                    <h2>結緣聯絡</h2>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-card">
+                            <h3>與我結緣</h3>
+                            <p>如果你也是學習路上的同行者，或是願意指導後進的前輩，歡迎與我交流學習心得！</p>
+                            <div class="contact-details">
+                                <div class="contact-item">
+                                    <div class="contact-icon">📧</div>
+                                    <div>
+                                        <strong>Email:</strong><br>
+                                        a114221070@mail.shu.edu.tw
+                                    </div>
+                                </div>
+                                <div class="contact-item">
+                                    <div class="contact-icon">🎓</div>
+                                    <div>
+                                        <strong>學校:</strong><br>
+                                        世新大學
+                                    </div>
+                                </div>
+                                <div class="contact-item">
+                                    <div class="contact-icon">🌸</div>
+                                    <div>
+                                        <strong>座右銘:</strong><br>
+                                        學而時習之，不亦說乎
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <form class="contact-form">
+                        <div class="form-header">
+                            <h3>留言結緣</h3>
+                            <p>歡迎留下你的想法或建議</p>
+                        </div>
+                        <div class="form-group">
+                            <label>姓名</label>
+                            <input type="text" placeholder="請輸入你的姓名" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" placeholder="請輸入你的 Email" required>
+                        </div>
+                        <div class="form-group">
+                            <label>留言內容</label>
+                            <textarea placeholder="分享你的想法、建議或學習心得..." rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <span>🙏</span>
+                            送出留言
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <div class="footer-logo">
+                        <div class="torii">⛩️</div>
+                        <span>心靜齋</span>
+                    </div>
+                    <p>初心如月，學海無涯</p>
+                </div>
+                <div class="footer-right">
+                    <div class="social-links">
+                        <a href="#" title="GitHub">
+                            <span>📚</span>
+                            <span>學習筆記</span>
+                        </a>
+                        <a href="#" title="LinkedIn">
+                            <span>🤝</span>
+                            <span>專業交流</span>
+                        </a>
+                        <a href="#" title="Blog">
+                            <span>✍️</span>
+                            <span>學習日誌</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 心靜齋 - 大一新生的數位禪境. 願所有學習者都能找到屬於自己的道路.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
