@@ -177,8 +177,8 @@
                                 <span class="tag">設計</span>
                             </div>
                             <div class="project-links">
-                                <a href="#" class="btn btn-small">觀看作品</a>
-                                <a href="#" class="btn btn-small btn-outline">程式碼</a>
+                                <a href="lantern-wish.html" class="btn btn-small" target="_blank">觀看作品</a>
+                                <a href="#code" class="btn btn-small btn-outline">程式碼</a>
                             </div>
                         </div>
                     </div>
@@ -339,10 +339,10 @@ function showZenAlert(message, type = 'info') {
     const alertDiv = document.createElement('div');
     alertDiv.className = `zen-alert zen-alert-${type}`;
     alertDiv.innerHTML = `
-        &lt;div class="zen-alert-content">
-            <div class="zen-alert-icon">${type === 'success' ? '🌸' : '⚠️'}</div>
-            &lt;p>${message}</p>
-        &lt;/div>
+        &lt;div class="zen-alert-content"&gt;
+            &lt;div class="zen-alert-icon"&gt;${type === 'success' ? '🌸' : '⚠️'}&lt;/div&gt;
+            &lt;p&gt;${message}&lt;/p&gt;
+        &lt;/div&gt;
     `;
     
     document.body.appendChild(alertDiv);
@@ -429,7 +429,6 @@ function showZenAlert(message, type = 'info') {
                 </div>
             </div>
         </section>
-
         <!-- 結緣聯絡 -->
         <section id="contact" class="contact">
             <div class="container">
