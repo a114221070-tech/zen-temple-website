@@ -20,6 +20,7 @@
                     <li><a href="#about">關於我</a></li>
                     <li><a href="#studies">學習之路</a></li>
                     <li><a href="#projects">作品展示</a></li>
+                    <li><a href="#code">程式碼</a></li>
                     <li><a href="#wisdom">心得感悟</a></li>
                     <li><a href="#contact">結緣聯絡</a></li>
                 </ul>
@@ -207,6 +208,188 @@
             </div>
         </section>
 
+        <!-- 程式碼展示 -->
+        <section id="code" class="code-showcase">
+            <div class="container">
+                <div class="section-header">
+                    <div class="zen-symbol">💻</div>
+                    <h2>程式碼展示</h2>
+                    <div class="section-divider"></div>
+                    <p class="section-subtitle">分享我的學習成果與程式碼片段</p>
+                </div>
+                <div class="code-grid">
+                    <div class="code-card">
+                        <div class="code-header">
+                            <div class="code-title">
+                                <span class="code-icon">🌸</span>
+                                <h3>櫻花飄落動畫</h3>
+                            </div>
+                            <div class="code-lang">JavaScript</div>
+                        </div>
+                        <div class="code-content">
+                            <pre><code>// 櫻花飄落效果
+function createSakuraPetals() {
+    const petalCount = 15;
+    const body = document.body;
+    
+    for (let i = 0; i < petalCount; i++) {
+        setTimeout(() => {
+            const petal = document.createElement('div');
+            petal.innerHTML = '🌸';
+            petal.style.cssText = `
+                position: fixed;
+                top: -50px;
+                left: ${Math.random() * 100}vw;
+                font-size: ${Math.random() * 20 + 15}px;
+                opacity: ${Math.random() * 0.7 + 0.3};
+                pointer-events: none;
+                z-index: 1;
+                animation: sakuraFall ${Math.random() * 10 + 15}s linear infinite;
+            `;
+            body.appendChild(petal);
+        }, i * 2000);
+    }
+}</code></pre>
+                        </div>
+                        <div class="code-footer">
+                            <span class="code-desc">創造網站的櫻花飄落效果</span>
+                            <a href="#" class="code-link">查看完整代碼</a>
+                        </div>
+                    </div>
+
+                    <div class="code-card">
+                        <div class="code-header">
+                            <div class="code-title">
+                                <span class="code-icon">🎨</span>
+                                <h3>日式色彩系統</h3>
+                            </div>
+                            <div class="code-lang">CSS</div>
+                        </div>
+                        <div class="code-content">
+                            <pre><code>/* 日系寺廟色彩調色盤 */
+:root {
+    --primary-red: #c73e1d;    /* 朱紅色 */
+    --temple-gold: #d4af37;    /* 寺廟金 */
+    --zen-brown: #8b4513;      /* 禪意棕 */
+    --bamboo-green: #4a5d23;   /* 竹綠色 */
+    --paper-white: #faf7f0;    /* 紙白色 */
+    --cherry-pink: #ffb7c5;    /* 櫻花粉 */
+}
+
+.hero {
+    background: linear-gradient(135deg, 
+        var(--paper-white) 0%, 
+        #f5f2e8 30%, 
+        #ede7d3 70%, 
+        var(--mist-gray) 100%);
+}</code></pre>
+                        </div>
+                        <div class="code-footer">
+                            <span class="code-desc">定義網站的日式美學色彩</span>
+                            <a href="#" class="code-link">查看完整樣式</a>
+                        </div>
+                    </div>
+
+                    <div class="code-card">
+                        <div class="code-header">
+                            <div class="code-title">
+                                <span class="code-icon">📱</span>
+                                <h3>響應式設計</h3>
+                            </div>
+                            <div class="code-lang">CSS</div>
+                        </div>
+                        <div class="code-content">
+                            <pre><code>/* 響應式導航選單 */
+@media (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background: linear-gradient(135deg, 
+            var(--paper-white) 0%, 
+            #f8f6f0 100%);
+        flex-direction: column;
+        transition: left 0.3s ease;
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+}</code></pre>
+                        </div>
+                        <div class="code-footer">
+                            <span class="code-desc">確保網站在手機上完美顯示</span>
+                            <a href="#" class="code-link">查看完整代碼</a>
+                        </div>
+                    </div>
+
+                    <div class="code-card">
+                        <div class="code-header">
+                            <div class="code-title">
+                                <span class="code-icon">🏮</span>
+                                <h3>禪意提示框</h3>
+                            </div>
+                            <div class="code-lang">JavaScript</div>
+                        </div>
+                        <div class="code-content">
+                            <pre><code>// 禪意風格的提示框
+function showZenAlert(message, type = 'info') {
+    const alertDiv = document.createElement('div');
+    alertDiv.className = `zen-alert zen-alert-${type}`;
+    alertDiv.innerHTML = `
+        &lt;div class="zen-alert-content">
+            <div class="zen-alert-icon">${type === 'success' ? '🌸' : '⚠️'}</div>
+            &lt;p>${message}</p>
+        &lt;/div>
+    `;
+    
+    document.body.appendChild(alertDiv);
+    
+    // 動畫顯示
+    setTimeout(() => {
+        alertDiv.style.transform = 'translateX(0)';
+    }, 100);
+}</code></pre>
+                        </div>
+                        <div class="code-footer">
+                            <span class="code-desc">創造具有禪意美學的用戶提示</span>
+                            <a href="#" class="code-link">查看完整代碼</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="github-showcase">
+                    <div class="github-card">
+                        <div class="github-header">
+                            <div class="github-icon">📚</div>
+                            <h3>完整原始碼</h3>
+                        </div>
+                        <p>想要查看完整的網站原始碼？歡迎訪問我的 GitHub 倉庫！</p>
+                        <div class="github-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">3</span>
+                                <span class="stat-label">檔案</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">500+</span>
+                                <span class="stat-label">行程式碼</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">100%</span>
+                                <span class="stat-label">用心製作</span>
+                            </div>
+                        </div>
+                        <a href="https://github.com/a114221070-tech/zen-temple-website" target="_blank" class="btn btn-primary">
+                            <span>📖</span>
+                            查看 GitHub 倉庫
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- 心得感悟 -->
         <section id="wisdom" class="wisdom">
             <div class="container">
@@ -246,6 +429,7 @@
                 </div>
             </div>
         </section>
+
         <!-- 結緣聯絡 -->
         <section id="contact" class="contact">
             <div class="container">
